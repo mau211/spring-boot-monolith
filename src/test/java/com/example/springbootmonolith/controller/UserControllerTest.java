@@ -16,6 +16,7 @@ import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.mockito.Mockito.when;
@@ -63,16 +64,16 @@ public class UserControllerTest {
         System.out.println(result.getResponse().getContentAsString());
     }
 
-//    @Test
-//    public void addCourse_Returns200_Success() throws Exception{
-//        RequestBuilder requestBuilder = MockMvcRequestBuilders
-//                .delete("/user/1");
-//
-//        when(userService.deleteById(anyLong())).thenReturn(HttpStatus.OK);
-//
-//        mockMvc.perform(requestBuilder)
-//                .andExpect(status().isOk());
-//    }
+    @Test
+    public void addCourse_Returns200_Success() throws Exception{
+        RequestBuilder requestBuilder = MockMvcRequestBuilders
+                .delete("/user/1");
+
+        when(userService.deleteById(anyLong())).thenReturn(HttpStatus.OK);
+
+        mockMvc.perform(requestBuilder)
+                .andExpect(status().isOk());
+    }
 
     private static String createUserInJson (String name, String password) {
         return "{ \"name\": \"" + name + "\", " +
